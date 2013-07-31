@@ -1,0 +1,35 @@
+case EVENT_MALLEABLE_GOO:
+                            if (Is25ManRaid())
+                            {
+  		if (IsHeroic())
+{                               std::list<Unit*> targets;
+                                SelectTargetList(targets, 2, SELECT_TARGET_RANDOM, -7.0f, true);
+                                if (!targets.empty())
+{
+                                    Talk(EMOTE_MALLEABLE_GOO);
+                                    for (std::list<Unit*>::iterator itr = targets.begin(); itr != targets.end(); ++itr)
+                                        DoCast(*itr, SPELL_MALLEABLE_GOO);
+
+                                 }
+                            }
+                            else
+                            {
+                                std::list<Unit*> targets;
+                                SelectTargetList(targets, 2, SELECT_TARGET_RANDOM, -7.0f, true);
+                                if (!targets.empty())
+                                {
+                                    Talk(EMOTE_MALLEABLE_GOO);
+                                    for (std::list<Unit*>::iterator itr = targets.begin(); itr != targets.end(); ++itr)
+                                        DoCast(*itr, SPELL_MALLEABLE_GOO);
+                                }
+                            }
+                            else
+                            {
+                                if (Unit* target = SelectTarget(SELECT_TARGET_RANDOM, 1, -7.0f, true))
+                                {
+                                    Talk(EMOTE_MALLEABLE_GOO);
+                                    DoCast(target, SPELL_MALLEABLE_GOO);
+                                }
+                            }
+                            events.ScheduleEvent(EVENT_MALLEABLE_GOO, urand(25000, 30000));
+                            break;
