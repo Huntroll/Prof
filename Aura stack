@@ -1,0 +1,5 @@
+if player has buff (buff ID) && (buff ID2) { //dva buffy co se stackují
+buff player (antibuff ID) } //tzv. antibuff == buff který má přesný opak (buff ID)
+} else {
+clear player (antibuff ID) //odstranění (antibuff ID)
+
